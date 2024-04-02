@@ -16,14 +16,17 @@ public:
 
 	/*get value*/ 
 	int getHead();
+	Node* get(int index);
 	void printList();
 
 	/*add node*/ 
 	void append(int value);
 	void prepend(int value);
+	bool set(int index, int value);
 
 	/*remove node*/
 	void deleteLast();
+	void deleteFirst();
 };
 
 #endif // !LINKED_LIST_H

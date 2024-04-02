@@ -29,6 +29,19 @@ int LinkedList::getHead() {
 	return this->head->value;
 }
 
+Node* LinkedList::get(int index) {
+	if (index >= this->len || index < 0) return nullptr;
+	
+	Node* temp = this->head;
+
+	for (int i = 0; i < index; i++) {
+		temp = temp->next;
+	}
+
+	return temp;
+	
+}
+
 void LinkedList::printList() {
 	Node* temp = this->head;
 	while (temp) {
@@ -71,6 +84,18 @@ void LinkedList::prepend(int value) {
 	this->len++;
 }
 
+bool LinkedList::set(int index, int value) {
+	if (index < 0 || index >= this->len) return false;
+
+	Node* temp = head;
+	for (int i = 0; i < index; i++) {
+		temp = temp->next;
+	}
+	temp->value = value;
+
+	return true;
+}
+
 /*remove node*/
 
 void LinkedList::deleteLast() {
@@ -97,6 +122,26 @@ void LinkedList::deleteLast() {
 		this->tail->next = nullptr;
 		delete temp;
 
+		this->len--;
+	}
+}
+
+void LinkedList::deleteFirst() {
+	if (this->len == 0) {
+		return;
+	}
+	else if (this->len == 1) {
+		delete this->head;
+
+		this->head = nullptr;
+		this->tail = nullptr;
+		this->len = 0;
+	}
+	else {
+		Node* temp = this->head;
+		this->head = this->head->next;
+
+		delete temp;
 		this->len--;
 	}
 }
