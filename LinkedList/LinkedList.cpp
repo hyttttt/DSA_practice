@@ -55,6 +55,22 @@ void LinkedList::append(int value) {
 	this->len++;
 }
 
+void LinkedList::prepend(int value) {
+	Node* newNode = new Node(value);
+
+	// check if linked list empty
+	if (this->len == 0) {
+		this->head = newNode;
+		this->tail = newNode;
+	}
+	else {
+		newNode->next = this->head;
+		this->head = newNode;
+	}
+
+	this->len++;
+}
+
 /*remove node*/
 
 void LinkedList::deleteLast() {

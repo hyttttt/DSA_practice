@@ -20,6 +20,7 @@ public:
 
 	/*add node*/ 
 	void append(int value);
+	void prepend(int value);
 
 	/*remove node*/
 	void deleteLast();
