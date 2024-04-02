@@ -23,6 +23,7 @@ public:
 	void append(int value);
 	void prepend(int value);
 	bool set(int index, int value);
+	bool insert(int index, int value);
 
 	/*remove node*/
 	void deleteLast();

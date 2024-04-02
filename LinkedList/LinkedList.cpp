@@ -85,14 +85,35 @@ void LinkedList::prepend(int value) {
 }
 
 bool LinkedList::set(int index, int value) {
-	if (index < 0 || index >= this->len) return false;
+	Node* temp = this->get(index);
 
-	Node* temp = head;
-	for (int i = 0; i < index; i++) {
-		temp = temp->next;
+	if (temp) {
+		temp->value = value;
+		return true;
 	}
-	temp->value = value;
 
+	return false;
+}
+
+bool LinkedList::insert(int index, int value) {
+	if (index < 0 || index > this->len) {
+		return false;
+	}
+	else if (index == 0) {
+		this->prepend(value);
+	}
+	else if (index == this->len) {
+		this->append(value);
+	}
+	else {
+		Node* newNode = new Node(value);
+		Node* pre = this->get(index - 1);
+
+		newNode->next = pre->next;
+		pre->next = newNode;
+	}
+
+	this->len++;
 	return true;
 }
 
