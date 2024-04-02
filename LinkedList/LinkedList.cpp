@@ -168,7 +168,7 @@ void LinkedList::deleteFirst() {
 }
 
 void LinkedList::deleteNode(int index) {
-	if (index < 0) return;
+	if (index < 0 || index >= this->len) return;
 	else if (index == 0) this->deleteFirst();
 	else if (index == this->len - 1) this->deleteLast();
 	else {
@@ -177,5 +177,29 @@ void LinkedList::deleteNode(int index) {
 
 		pre->next = temp->next;
 		delete temp;
+	}
+
+	this->len--;
+}
+
+/*else*/
+
+void LinkedList::reverse() {
+	if (this->len <= 1) return;
+	else {
+		Node* temp = this->head;
+
+		// switch head and tail
+		this->head = this->tail;
+		this->tail = temp;
+
+		Node* pre = nullptr;
+		Node* after = temp->next;
+		for (int i = 0; i < this->len; i++) {
+			after = temp->next;
+			temp->next = pre;	// change direction
+			pre = temp;			// move 3 ptrs
+			temp = after;
+		}
 	}
 }

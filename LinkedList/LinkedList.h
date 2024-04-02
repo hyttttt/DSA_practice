@@ -29,6 +29,9 @@ public:
 	void deleteLast();
 	void deleteFirst();
 	void deleteNode(int index);
+
+	/*else*/
+	void reverse();
 };
 
 #endif // !LINKED_LIST_H
