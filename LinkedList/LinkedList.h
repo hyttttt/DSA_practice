@@ -28,6 +28,7 @@ public:
 	/*remove node*/
 	void deleteLast();
 	void deleteFirst();
+	void deleteNode(int index);
 };
 
 #endif // !LINKED_LIST_H

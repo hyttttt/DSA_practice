@@ -166,3 +166,16 @@ void LinkedList::deleteFirst() {
 		this->len--;
 	}
 }
+
+void LinkedList::deleteNode(int index) {
+	if (index < 0) return;
+	else if (index == 0) this->deleteFirst();
+	else if (index == this->len - 1) this->deleteLast();
+	else {
+		Node* pre = this->get(index - 1);
+		Node* temp = pre->next;
+
+		pre->next = temp->next;
+		delete temp;
+	}
+}

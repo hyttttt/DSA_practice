@@ -9,7 +9,7 @@ void main() {
 	ll.prepend(0);
 	ll.append(456);
 
-	ll.insert(2, 888);
+	ll.deleteNode(1);
 
 	ll.printList();
 	//cout << ll.get(2)->value;
